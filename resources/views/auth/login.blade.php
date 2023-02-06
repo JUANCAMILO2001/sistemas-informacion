@@ -1,48 +1,52 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <x-jet-validation-errors class="mb-4" />
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
+@extends('layouts.guest')
+@section('title', 'Iniciar Sesión')
+@section('content')
+    <header class="headers" style="">
+        <div class="inner-top d-flex justify-content-between" >
+                <a href="{{url('auth.login')}}" id="logo-sena" class="img-fluid" title="Logo Sena"></a>
             <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <div>
+                    <input class="img-fluid" type="image" style="height: 127px; margin-top: -12px; " name="imgbtn" src="{{url('../../recursos/img/login-via-microsoft.png')}}" id="">
+                </div>
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+        </div>
+    </header>
+    <div class="linea"></div>
+    <main style="height: 75vh">
+        <div id="content" style="background-color: #ffffff">
+            <div class="inner-mid d-flex align-items-center justify-content-center">
+                <div class="container">
+                    <form action="">
+                        <div>
+                            <div class="title-content">
+                                <p>Ingreso Usuarios registrados</p>
+                            </div>
+                            <div class="content-login input-group has-validation">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                                    <label for="floatingInput">Correo Electronico</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" required>
+                                    <label for="floatingPassword">Contraseña</label>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-outline-success">Success</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+        </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+    </main>
+    <footer class="footer-login">
+        aa
 
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+    </footer>
+
+@endsection
