@@ -14,7 +14,7 @@
 
 
 </head>
-<body class="a" >
+<body>
 @yield('content')
 
 

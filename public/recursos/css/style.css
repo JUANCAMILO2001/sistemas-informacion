@@ -43,10 +43,22 @@
     background-size: cover;
 }
 
+.form-container-login{
+    width: 30%;
+    height: 60%;
+}
+.title-content{
+    background: #690;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
 
 
 .footer-login{
     background-color: #39a900;
     color: #fff;
-    height: 3.3rem;
+    height: 100%;
 }
